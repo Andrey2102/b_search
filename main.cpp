@@ -7,7 +7,8 @@ using namespace std;
 
 int main()
 {
-	generate A;
-	A.select();
+	int SIZE = input_size();
+	int *A = new int [SIZE];
+	A = select(A, SIZE);
 	return 0;
 }
