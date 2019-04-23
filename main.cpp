@@ -1,15 +1,13 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <iomanip>
-#include <vector>
-#include <map>
-#include <list>
-#include <algorithm>
+#include <ctime>
+#include "generate.cpp"
 using namespace std;
 
 int main()
 {
-	
+	generate A;
+	A.select();
 	return 0;
 }
