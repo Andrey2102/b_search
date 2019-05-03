@@ -6,25 +6,24 @@
 #include <time.h>
 #include <cmath>
 #include <math.h>
-
 using namespace std;
-int Odnorodniy_Binary_seach(int Array[], int size, int seach)
+
+int Odnorodniy_Binary_search(int Array[], int size, int search)
 {
 	int index, delta= size / 2;
 	index = delta;
 	while (true)
 	{
-		delta= delta/2
-		if (Array[index] == seach)
+		delta= delta/2;
+		if (Array[index] == search)
 		{
-			
 			break;
 		}
-		if (Array[index] > seach)
+		if (Array[index] > search)
 		{
 			index = index - delta;
 		}
-		if (Array[index] < seach)
+		if (Array[index] < search)
 		{
 			index = index + delta;
 		}
@@ -35,7 +34,9 @@ int Odnorodniy_Binary_seach(int Array[], int size, int seach)
 	}
 	return index;
 }
-int Binary_seach(int Array[],int left, int right, int key)
+
+
+int Binary_search(int arr[],int left, int right, int key)
 {
 	int midd = 0;
 	while (1)
@@ -52,10 +53,10 @@ int Binary_seach(int Array[],int left, int right, int key)
 		if (left > right)          
 			return -1;
 	}
-})
+}
 
 
-int Sharr_seach(int Array[], int K)
+int Sharr_search(int Array[], int n, int K)
 {
 	int k = log2(n);
 	int index = pow(2, k);
@@ -72,8 +73,12 @@ int Sharr_seach(int Array[], int K)
 				cout << "Element is founded, index:" << index << endl;
 				break;
 			}
-			if (K < Array[index]) index = index - del;
-			else index = index + del;
+			if (K < Array[index]){
+				index = index - del;
+			}
+			else{
+				index = index + del;
+			}
 			if (K == Array[index])
 			{
 				cout << "Element is founded, index:" << index << endl;
@@ -100,8 +105,12 @@ int Sharr_seach(int Array[], int K)
 					cout << "Element is founded, index:" << index << endl;
 					break;
 				}
-				if (K < Array[index]) index = index - del;
-				else index = index + del;
+				if (K < Array[index]){
+					index = index - del;
+				}
+				else{
+					index = index + del;
+				}
 				if (K == Array[index])
 				{
 					cout << "Element is founded, index:" << index << endl;
@@ -114,13 +123,52 @@ int Sharr_seach(int Array[], int K)
 			}
 		}
 	}
-
 	return index;
 }
+
+int select_search(int *A, int size){
+	cout << "Enter element, that you want to search in the array: ";
+	int key;
+	cin >> key;
+	cout << "Chose the method, which you want to search element: " << endl;
+	cout << "1) Odnorodniy binary search" << endl;
+	cout << "2) Binary search" << endl;
+	cout << "3) Sharr search" << endl;
+	cout << "Select: ";
+	int sel;
+	cin >> sel;
+	int res;
+	switch(sel){
+		case 1:
+			res = Odnorodniy_Binary_search(A, size, key);
+			break;
+		case 2:
+			res = Binary_search(A, 0, size, key);
+			break;
+		case 3:
+			res = Sharr_search(A, size, key);
+			break;
+		default:
+			cout << "Default select." << endl;
+			select_search(A, size);
+			break;
+	}
+	if (res && res>=0)
+	{
+		cout << "Result: " << res << endl;
+		return res;
+	}
+	else{
+		cout << "Error 404: Not founded." << endl;
+	}
+	return 0;
+}
+
 int main()
 {
 	int SIZE = input_size();
 	int *A = new int [SIZE];
 	A = select(A, SIZE);
+	select_search(A, SIZE);
 	return 0;
 }

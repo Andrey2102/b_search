@@ -31,25 +31,11 @@ int* input(int* A, int SIZE){
 	return A;
 }
 
-int* generate(int* A, int SIZE){
-	srand(time(NULL));
-	cout << "Enter limit of the number that will generated: ";
-	int lim;
-	cin >> lim;
-	for (int i = 0; i < SIZE; ++i)
-	{
-		A[i] = rand()%(lim + 1);
-	}
-	cout << endl << endl << "Generated array: ";
-	output(A, SIZE);
-	return A;
-}
 
-int* generate_revert(int* A, int SIZE){
-	srand(time(NULL));
+int* generate(int* A, int SIZE){
 	for (int i = 0; i < SIZE; ++i)
 	{
-		A[i] = SIZE - i;
+		A[i] = i;
 	}
 	cout << endl << endl << "Generated array: ";
 	output(A, SIZE);
@@ -57,7 +43,7 @@ int* generate_revert(int* A, int SIZE){
 	}
 	
 	int* select(int* A, int SIZE){
-	cout << "If you want to enter numbers yourself - press (1)." << endl << "Press (2) to generate random numbers" << endl << "Press (3) to generate an array sorted in the opposite direction." << endl << "Select:";
+	cout << "If you want to enter numbers yourself - press (1)." << endl << "Press (2) to generate array." << endl << "Select:";
 	int sel = 0;
 	cin >> sel;
 	switch(sel){
@@ -66,9 +52,6 @@ int* generate_revert(int* A, int SIZE){
 			break;
 		case 2:
 			A = generate(A, SIZE);
-			break;
-		case 3:
-			A = generate_revert(A, SIZE);
 			break;
 		default:
 			cout << "Default select." << endl;
