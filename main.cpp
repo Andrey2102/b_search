@@ -14,7 +14,7 @@ int Odnorodniy_Binary_search(int Array[], int size, int search)
 	index = delta;
 	while (true)
 	{
-		delta= delta/2;
+		delta = delta/2;
 		if (Array[index] == search)
 		{
 			break;
@@ -162,6 +162,10 @@ int select_search(int *A, int size){
 		cout << "Error 404: Not founded." << endl;
 	}
 	return 0;
+}
+
+int line_search(int *A, int size){
+	
 }
 
 int main()
