@@ -176,3 +176,50 @@ int main()
 	select_search(A, SIZE);
 	return 0;
 }
+
+
+
+
+
+
+
+
+/*
+
+int MainWindow::Binary_search(int &counter, QString &data, QString &data2)
+{
+    int left = 0;
+    int right = size;
+    int midd = 0;
+    while (1)
+    {
+        midd = (left + right) / 2;
+        counter++;
+        data+= "->";
+        data+= QString::number(midd);
+        data2+= "->";
+        data2+= QString::number(A[midd]);
+        if (key < A[midd])
+            right = midd - 1;
+        else if (key > A[midd])
+            left = midd + 1;
+        else
+            return midd;
+
+        if (left > right)
+            return -1;
+    }
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
